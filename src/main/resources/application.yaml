@@ -11,5 +11,7 @@ eureka:
   client:
     register-with-eureka: false # Evita que el servidor intente registrarse a sí mismo
     fetch-registry: false       # Evita que intente buscar otros servidores locales
-    service-url:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+#    service-url:
+#      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+  server:
+    renewal-percent-threshold: 0.90
