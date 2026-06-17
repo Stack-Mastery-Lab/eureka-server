@@ -16,9 +16,5 @@ COPY --from=build /app/target/eureka-server-0.0.1-SNAPSHOT.jar app.jar
 # Puerto que expone Eureka Server
 EXPOSE 8761
 
-# Health check para verificar que el servicio está saludable
-HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
-    CMD wget --quiet --tries=1 --spider http://localhost:8761/eureka/ || exit 1
-
 # Punto de entrada
 ENTRYPOINT ["java", "-jar", "app.jar"]
